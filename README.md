@@ -12,7 +12,7 @@
 <b>Example</b>
 TypeScript will report an error when passing a string into a function that expects a number. JavaScript will not.
 
-# What are “decorators” in typescript ?
+# 1- What are decorators in Typescript ?
 
 A Decorator is a special kind of declaration that can be attached to a <b>class</b> declaration, <b>method</b>, <b>accessor</b>, <b>property</b>, or <b>parameter</b>. Decorators use the form <b>@expression</b>, where <b>expression</b> must evaluate to a function that will be called at runtime with information about the decorated declaration.
 
@@ -66,3 +66,90 @@ class MyClass {
 const instance = new MyClass();
 instance.myMethod(3, 5); // Output: Calling method myMethod with arguments 3,5
 ```
+
+# 2- What are generics in TypeScript?
+
+- Generics are a TypeScript feature that allows us to pass in various types of data and create reusable code to handle different inputs. They allow us to define placeholder types which are then replaced when the code is executed with the actual types passed in.
+  
+- Generics are like a template that can be reused across the same piece of code multiple times but with the value being independent of each invocation of the function. Let’s look at an example to get a better understanding of this.
+
+``` typescript
+// 👇 We define a generic value called T with <T>
+function getFirstElement<T>(arr: T[]): T {
+  return arr[0];
+}
+
+const numberArray: number[] = [1, 2, 3, 4, 5];
+const stringArray: string[] = ['apple', 'banana', 'orange'];
+
+// 👇 Note the generic values being passed in <number> & <string>
+const firstNumber = getFirstElement<number>(numberArray);
+const firstString = getFirstElement<string>(stringArray);
+```
+<h3>Generics offer us multiple benefits as developers, but some of the biggest ones are:</h3>
+
+1. <b>Type Safety and Error Detection:</b> Generics allow us to write code that operates on various types of data without losing the type safety of TypeScript.
+
+2. <b>Code Reusability & Flexibility:</b>b In a similar sense to the above point, generics help us make our code more reusable and flexible. This is because, with generics, we can abstract a piece of code to be more generic and work with multiple data types instead of just one, cutting down on the amount of duplicate code required to work with different data types.
+
+3. <b>Better Maintainability:</b> Because generics allow us to write more reusable code, we now have fewer instances of code to maintain and update with bug fixes when required.
+
+<h3>How to Use Generics:</h3>
+
+Generics are declared using angle brackets <b>(<>)</b> and can be used in functions, classes, interfaces, and type aliases.
+
+<b>1. Function Generics:</b>
+
+``` typescript
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+// Usage
+let result = identity<number>(10); // result will be of type number
+let value = identity<string>("Hello"); // value will be of type string
+```
+
+<b>2. Class Generics:</b>
+
+``` typescript
+class Box<T> {
+    private item: T;
+
+    constructor(item: T) {
+        this.item = item;
+    }
+
+    getItem(): T {
+        return this.item;
+    }
+}
+
+// Usage
+let box = new Box<number>(10); // box will hold a number
+console.log(box.getItem()); // Output: 10
+```
+
+
+<b>3. Interface Generics:</b>
+
+``` typescript
+interface Pair<T, U> {
+    first: T;
+    second: U;
+}
+
+// Usage
+let pair: Pair<number, string> = { first: 1, second: "two" };
+console.log(pair); // Output: { first: 1, second: "two" }
+```
+<h3>When to Use Generics</h3>
+
+You should consider using generics when:
+
+- You want to create reusable components or functions that can work with different types.
+- You need to maintain type safety while writing flexible code.
+- You want to write abstract algorithms that are independent of specific data types.
+  
+Generics are particularly useful in scenarios such as creating data structures (like arrays, lists, or trees), implementing algorithms (sorting, searching), and designing libraries or frameworks.
+   
