@@ -12,7 +12,7 @@
 <b>Example</b>
 TypeScript will report an error when passing a string into a function that expects a number. JavaScript will not.
 
-# What are “decorators” in typescript and how to use “decorators”?
+# What are “decorators” in typescript ?
 
 A Decorator is a special kind of declaration that can be attached to a <b>class</b> declaration, <b>method</b>, <b>accessor</b>, <b>property</b>, or <b>parameter</b>. Decorators use the form <b>@expression</b>, where <b>expression</b> must evaluate to a function that will be called at runtime with information about the decorated declaration.
 
