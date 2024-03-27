@@ -9,7 +9,7 @@
 2. In JavaScript, function parameters and variables don't have any information! So developers need to look at documentation, or guess based on the implementation.
 3. TypeScript allows specifying the types of data being passed around within the code, and has the ability to report errors when the types don't match.
 
-<b>Example</b>
+<b>Example:</b></br>
 TypeScript will report an error when passing a string into a function that expects a number. JavaScript will not.
 
 # 1- What are decorators in Typescript ?
@@ -152,4 +152,75 @@ You should consider using generics when:
 - You want to write abstract algorithms that are independent of specific data types.
   
 Generics are particularly useful in scenarios such as creating data structures (like arrays, lists, or trees), implementing algorithms (sorting, searching), and designing libraries or frameworks.
+
+# 3- What is the difference between interface and type in TypeScript ?
+
+In TypeScript, both <b>interface</b> and <b>type</b> are constructs you can use to define shapes of data or objects. They have similarities and differences, and understanding these can help you decide when to use each.
+
+<h3>Interface</h3>
+
+1. <b>Extension:</b> An interface can be extended using the extends keyword. This allows you to create new interfaces that inherit properties from an existing interface.
+
+2. <b>Declaration Merging:</b> Interfaces support declaration merging. If you define an interface twice with the same name, TypeScript will merge the two declarations into one. This feature is handy when augmenting existing interfaces or declaring additional properties for existing libraries.
+
+3. <b>Implementation:</b> An interface can be implemented by a class. This enforces that the class conforms to the structure defined by the interface.
+
+<b>Example:</b>
+
+``` typescript
+interface Animal {
+    name: string;
+}
+
+interface Dog extends Animal {
+    bark(): void;
+}
+```
+
+<h3>Type</h3>
+
+1. <b>Unions and Intersections:</b> Type aliases can define unions or intersections of other types, which interfaces cannot.
    
+2. <b>Non-object Types:</b> Type aliases can be used to alias not just object shapes but also other types such as primitives, unions, and tuples. Here's how you can use type aliases with these types of data:
+
+    1. <b>Primitives:</b> You can create a type alias for a primitive type, though this is less common and usually not as useful as the other uses of type aliases.
+  
+      ``` typescript
+         type MyString = string;
+         type MyNumber = number;
+      ```
+
+    2. <b>Unions:</b> This is particularly powerful. You can define a type that can be one of several types. For instance, if you want a variable to accept either a string or a number, you can define a type alias like this:
+
+       ``` typescript
+         type StringOrNumber = string | number;
+       ```
+
+    3. <b>Tuples:</b> Tuples are like arrays with fixed types and lengths. You can define a tuple using a type alias, specifying the type of each element in the tuple.
+
+       ``` typescript
+         type NameAndAge = [string, number];
+       ```
+   
+4. <b>Cannot be Reopened/Extended:</b> Once you've defined a type, you cannot redefine or extend it with new properties (unlike interfaces).
+
+<b>Example:</b>
+
+``` typescript
+type Animal = {
+    name: string;
+};
+
+type Bear = Animal & {
+    honey: boolean;
+};
+
+type StringOrNumber = string | number;
+
+```
+
+<h3>Choosing Between interface and type</h3>
+
+- <b>Use interface when:</b> you need to define a contract for an object or you want to take advantage of features like extension or implementation by classes.
+- <b>Use type when:</b> you need to define a type that might not be an object, or you need to use unions, intersections, or tuples.
+- In many TypeScript style guides, <b>interface</b> is preferred for defining object shapes due to its more extensible and readable nature.   
