@@ -74,7 +74,6 @@ instance.myMethod(3, 5); // Output: Calling method myMethod with arguments 3,5
 - Generics are like a template that can be reused across the same piece of code multiple times but with the value being independent of each invocation of the function. Let’s look at an example to get a better understanding of this.
 
 ``` typescript
-// 👇 We define a generic value called T with <T>
 function getFirstElement<T>(arr: T[]): T {
   return arr[0];
 }
@@ -82,7 +81,6 @@ function getFirstElement<T>(arr: T[]): T {
 const numberArray: number[] = [1, 2, 3, 4, 5];
 const stringArray: string[] = ['apple', 'banana', 'orange'];
 
-// 👇 Note the generic values being passed in <number> & <string>
 const firstNumber = getFirstElement<number>(numberArray);
 const firstString = getFirstElement<string>(stringArray);
 ```
