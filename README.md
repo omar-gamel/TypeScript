@@ -153,7 +153,7 @@ You should consider using generics when:
   
 Generics are particularly useful in scenarios such as creating data structures (like arrays, lists, or trees), implementing algorithms (sorting, searching), and designing libraries or frameworks.
 
-# 3- What is the difference between interface and type in TypeScript ?
+# 3- Interface vs Type in TypeScript ?
 
 In TypeScript, both <b>interface</b> and <b>type</b> are constructs you can use to define shapes of data or objects. They have similarities and differences, and understanding these can help you decide when to use each.
 
@@ -223,4 +223,5 @@ type StringOrNumber = string | number;
 
 - <b>Use interface when:</b> you need to define a contract for an object or you want to take advantage of features like extension or implementation by classes.
 - <b>Use type when:</b> you need to define a type that might not be an object, or you need to use unions, intersections, or tuples.
-- In many TypeScript style guides, <b>interface</b> is preferred for defining object shapes due to its more extensible and readable nature.   
+  
+In many TypeScript style guides, <b>interface</b> is preferred for defining object shapes due to its more extensible and readable nature.   
