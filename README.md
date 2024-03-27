@@ -42,11 +42,9 @@ There are several built-in decorators provided by TypeScript, such as <b>@deprec
 Here's a basic example of how to define and use a decorator in TypeScript:
 
 ``` typescript
-// Custom decorator function
 function log(target: any, key: string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
 
-    // Redefine the method
     descriptor.value = function (...args: any[]) {
         console.log(`Calling method ${key} with arguments ${args}`);
         return originalMethod.apply(this, args);
@@ -55,7 +53,6 @@ function log(target: any, key: string, descriptor: PropertyDescriptor) {
     return descriptor;
 }
 
-// Using the decorator
 class MyClass {
     @log
     myMethod(x: number, y: number) {
@@ -103,7 +100,6 @@ function identity<T>(arg: T): T {
     return arg;
 }
 
-// Usage
 let result = identity<number>(10); // result will be of type number
 let value = identity<string>("Hello"); // value will be of type string
 ```
@@ -123,7 +119,6 @@ class Box<T> {
     }
 }
 
-// Usage
 let box = new Box<number>(10); // box will hold a number
 console.log(box.getItem()); // Output: 10
 ```
@@ -137,7 +132,6 @@ interface Pair<T, U> {
     second: U;
 }
 
-// Usage
 let pair: Pair<number, string> = { first: 1, second: "two" };
 console.log(pair); // Output: { first: 1, second: "two" }
 ```
