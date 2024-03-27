@@ -85,7 +85,7 @@ const firstString = getFirstElement<string>(stringArray);
 
 1. <b>Type Safety and Error Detection:</b> Generics allow us to write code that operates on various types of data without losing the type safety of TypeScript.
 
-2. <b>Code Reusability & Flexibility:</b>b In a similar sense to the above point, generics help us make our code more reusable and flexible. This is because, with generics, we can abstract a piece of code to be more generic and work with multiple data types instead of just one, cutting down on the amount of duplicate code required to work with different data types.
+2. <b>Code Reusability & Flexibility:</b> In a similar sense to the above point, generics help us make our code more reusable and flexible. This is because, with generics, we can abstract a piece of code to be more generic and work with multiple data types instead of just one, cutting down on the amount of duplicate code required to work with different data types.
 
 3. <b>Better Maintainability:</b> Because generics allow us to write more reusable code, we now have fewer instances of code to maintain and update with bug fixes when required.
 
